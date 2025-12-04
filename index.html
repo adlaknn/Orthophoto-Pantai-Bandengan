@@ -16,17 +16,20 @@
         body { margin: 0; padding: 0; }
         html, body, #map { width: 100%; height: 100%; }
 
-        /* SCALEBAR SUPER BESAR */
+        /* 🔥 SCALE BAR SUPER BESAR */
         .leaflet-control-scale {
-            font-size: 26px;     
-            padding: 14px;      
+            font-size: 26px;      /* ukuran teks */
+            padding: 18px;
         }
 
+        /* Membesarkan garis batang skala */
         .leaflet-control-scale-line {
-            border-top: 6px solid black; 
-            height: 10px;               
+            height: 10px !important;
+            border-top-width: 4px !important;
+            border-bottom-width: 4px !important;
         }
 
+        /* 🔥 PINDAHKAN KE KANAN BAWAH */
         .leaflet-bottom.leaflet-right .leaflet-control-scale {
             margin: 25px;
         }
