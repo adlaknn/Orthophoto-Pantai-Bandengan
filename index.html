@@ -27,6 +27,13 @@
 
     L.control.attribution({ prefix: false }).addTo(map);
 
+    // 🔥 SCALE BAR
+    L.control.scale({
+        metric: true,     // tampilkan meter / km
+        imperial: false   // nonaktifkan mile / feet
+    }).addTo(map);
+
+    // 🔥 TILE LAYER GITHUB PAGES
     var tilesource_layer = L.tileLayer(
         'https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/tiles/{z}/{x}/{y}.png',
         {
