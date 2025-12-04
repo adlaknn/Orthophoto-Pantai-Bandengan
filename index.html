@@ -16,15 +16,19 @@
         body { margin: 0; padding: 0; }
         html, body, #map { width: 100%; height: 100%; }
 
-        /* 🔥 MEMBESARKAN SCALE BAR */
+        /* SCALEBAR SUPER BESAR */
         .leaflet-control-scale {
-            font-size: 18px;
-            padding: 30px;
+            font-size: 26px;     
+            padding: 14px;      
         }
 
-        /* 🔥 PINDAHKAN KE KANAN BAWAH */
+        .leaflet-control-scale-line {
+            border-top: 6px solid black; 
+            height: 10px;               
+        }
+
         .leaflet-bottom.leaflet-right .leaflet-control-scale {
-            margin: 20px;
+            margin: 25px;
         }
     </style>
 </head>
@@ -43,7 +47,7 @@
     L.control.scale({
         metric: true,
         imperial: false,
-        position: 'bottomright'   // 🔥 pindah kanan bawah
+        position: 'bottomright'
     }).addTo(map);
 
     // TILE LAYER
