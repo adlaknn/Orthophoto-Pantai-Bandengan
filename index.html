@@ -44,7 +44,7 @@
       );
 
       // 3. Definisikan Layer Tiles Lokal
-      var myLocalTiles = L.tileLayer("https://adlaknn.github.io/Ortofoto-Pantai-Bandengan/Mapnik/{z}/{x}/{y}.png", {
+      var myLocalTiles = L.tileLayer("https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/Mapnik/{z}/{x}/{y}.png", {
         maxZoom: 20,
         attribution: "Created by QGIS",
       });
@@ -64,6 +64,13 @@
 
       // Tambahkan kontrol ke peta
       L.control.layers(baseMaps, overlayMaps).addTo(map);
+      // 6. Scale Bar
+       L.control.scale({
+        position: "bottomright",
+        metric: true,
+        imperial: false,
+        maxWidth: 150
+      }).addTo(map);
     </script>
   </body>
 </html>
