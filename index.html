@@ -30,7 +30,7 @@
       // 1. Inisialisasi Peta
       var map = L.map("map").setView(
         [-6.556680502886013, 110.65075618026786],
-        10
+        15
       );
 
       // 2. Definisikan Layer OpenStreetMap (OSM)
@@ -45,7 +45,7 @@
 
       // 3. Definisikan Layer Tiles Lokal
      var tilesource_layer = L.tileLayer(
-        'https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/tiles/{z}/{x}/{y}.png',
+        'https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/tiless/{z}/{x}/{y}.png',
         {
             minZoom: 12,
             maxZoom: 20,
