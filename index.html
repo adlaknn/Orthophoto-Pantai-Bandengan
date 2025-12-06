@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Foto UGM</title>
+    <title>Ortofoto Bandengan</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -29,7 +29,7 @@
     <script>
       // 1. Inisialisasi Peta
       var map = L.map("map").setView(
-        [-7.769388547323829, 110.37813847488121],
+        [-6.556680502886013, 110.65075618026786],
         18
       );
 
@@ -44,7 +44,7 @@
       );
 
       // 3. Definisikan Layer Tiles Lokal
-      var myLocalTiles = L.tileLayer("/tiles/{z}/{x}/{y}.png", {
+      var myLocalTiles = L.tileLayer("/tiless/{z}/{x}/{y}.png", {
         maxZoom: 20,
         attribution: "Data Saya",
       });
