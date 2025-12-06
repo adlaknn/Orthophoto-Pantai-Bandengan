@@ -44,10 +44,15 @@
       );
 
       // 3. Definisikan Layer Tiles Lokal
-      var myLocalTiles = L.tileLayer("/tiless/{z}/{x}/{y}.png", {
-        maxZoom: 20,
-        attribution: "Data Saya",
-      });
+     var tilesource_layer = L.tileLayer(
+        'https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/tiles/{z}/{x}/{y}.png',
+        {
+            minZoom: 12,
+            maxZoom: 20,
+            tms: false,
+            attribution: 'Created by QGIS'
+        }
+      );
 
       // 4. Tambahkan OSM ke peta secara default (agar tidak kosong saat dibuka)
       osmLayer.addTo(map);
