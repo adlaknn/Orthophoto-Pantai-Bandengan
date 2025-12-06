@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Leaflet preview</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Foto UGM</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          crossorigin=""/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
-        body { margin: 0; padding: 0; }
-        html, body, #map { width: 100%; height: 100%; }
-
-        /* 🔥 MEMBESARKAN SCALE BAR */
-        .leaflet-control-scale {
-            font-size: 15px;
-            padding: 10px;
-        }
-
-        /* 🔥 PINDAHKAN KE KANAN BAWAH */
-        .leaflet-bottom.leaflet-right .leaflet-control-scale {
-            margin: 20px;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <div id="map"></div>
 
-<body>
-<div id="map"></div>
+    <script>
+      // 1. Inisialisasi Peta
+      var map = L.map("map").setView(
+        [-7.769388547323829, 110.37813847488121],
+        18
+      );
 
-<script>
-    var map = L.map('map', {
-        attributionControl: false
-    }).setView([-6.55844, 110.653], 16);
-
-    L.control.attribution({ prefix: false }).addTo(map);
-
-    // SCALE BAR
-    L.control.scale({
-        metric: true,
-        imperial: false,
-        position: 'bottomright'   // 🔥 pindah kanan bawah
-    }).addTo(map);
-
-    // TILE LAYER
-    var tilesource_layer = L.tileLayer(
-        'https://adlaknn.github.io/Orthophoto-Pantai-Bandengan/tiles/{z}/{x}/{y}.png',
+      // 2. Definisikan Layer OpenStreetMap (OSM)
+      var osmLayer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-            minZoom: 12,
-            maxZoom: 20,
-            tms: false,
-            attribution: 'Created by QGIS'
+          maxZoom: 20,
+          attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }
-    ).addTo(map);
-</script>
+      );
 
-</body>
+      // 3. Definisikan Layer Tiles Lokal
+      var myLocalTiles = L.tileLayer("/tiles/{z}/{x}/{y}.png", {
+        maxZoom: 20,
+        attribution: "Data Saya",
+      });
+
+      // 4. Tambahkan OSM ke peta secara default (agar tidak kosong saat dibuka)
+      osmLayer.addTo(map);
+      myLocalTiles.addTo(map);
+
+      // 5. Buat Layer Control (Tombol ganti layer di pojok kanan atas)
+      var baseMaps = {
+        OpenStreetMap: osmLayer,
+      };
+
+      var overlayMaps = {
+        "Data Ortho": myLocalTiles,
+      };
+
+      // Tambahkan kontrol ke peta
+      L.control.layers(baseMaps, overlayMaps).addTo(map);
+    </script>
+  </body>
 </html>
